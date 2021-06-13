@@ -57,7 +57,9 @@ html {
     padding: 0 24px;
 }
 
-
+#nav {
+    display: inline-block;
+}
 #nav .subnav li:hover a,
 #nav > li:hover > a {
     color: #000;
@@ -76,13 +78,34 @@ html {
     background-color: #fff;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
 }
-
 #nav .subnav a {
     color: #000;
     padding: 0 14px;
     line-height: 38px;
 }
+#nav > li:last-child {
+    position: relative;
+}
+#nav #nav-arrow-down {
+    display: inline-block; 
+    position: absolute;
+    top: -6%;
+    right: 10px;
+}
 
+#header .search-btn {
+    float: right; 
+    padding: 0 23px;
+}
+
+#header .search-btn:hover {
+    background-color: #f44336;
+    cursor: pointer;
+}
+#header .search-icon {
+    color: white;
+    line-height: 46px;
+}
 #slider {
 }
 
