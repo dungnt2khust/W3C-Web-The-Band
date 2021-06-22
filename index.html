@@ -120,19 +120,19 @@
             <div id="contact" class="content-section">
                 <h2 class="section-heading">Contact</h2>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
-                <div class="row contact-content">
-                    <div class="col col-half contact-info">
+                <div class="row contact-content ">
+                    <div class="col col-half contact-info s-col-full">
                         <p><i class="fas fa-map-marker-alt"></i> Chicago, US</p>
                         <p><i class="fas fa-phone-alt"></i> Phone: +00 151515</p>
                         <p><i class="fas fa-envelope"></i> Email: mail@mail.com</p>
                     </div>
-                    <div class="col col-half contact-form">
+                    <div class="col col-half contact-form s-col-full">
                         <form action="">
                             <div class="row">
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full">
                                     <input class="form-control" required type="text" placeholder="Name">
                                 </div>
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full s-mt-8">
                                     <input  class="form-control" required  type="text" placeholder="Email">
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                     <input class="form-control" required type="text" placeholder="Message">
                                 </div>
                             </div>
-                            <input class="mt-16 form-submit" type="submit" value="Send">
+                            <input class="mt-16 form-submit s-full-width" type="submit" value="Send">
                         </form>
                     </div>
                 </div>
@@ -173,11 +173,16 @@
             else 
                 header.style.height = null;
         }
-        var menuItems = document.querySelectorAll('#nav li a[href*="#"');
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
         for (var i = 0; i < menuItems.length; i++) {
             var menuItem = menuItems[i];
-            menuItem.onclick = function (){
-                header.style.height = null;
+            
+            menuItem.onclick = function (event){
+                var isParentSubnav = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if (!isParentSubnav) 
+                    header.style.height = null;
+                else 
+                    event.preventDefault();
             }
         }
     </script>
