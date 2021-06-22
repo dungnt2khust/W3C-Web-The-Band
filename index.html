@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./assets/fonts/themify-icons.css">
     <link rel="icon" href="./assets/img/guitar.png" type="image/gif" sizes="16x16">
@@ -38,6 +39,9 @@
             <!-- Begin: Search button -->
             <div class="search-btn">
                 <i class="search-icon fas fa-search"></i>
+            </div>
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
             <!-- End: Search button -->
         </div>
@@ -158,5 +162,24 @@
             <p class="copyright">Power by <a href="#">w3.css</a></p>
         </div>
     </div>
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+        mobileMenu.onclick = function () {
+            var isClose = header.clientHeight === headerHeight;
+            if(isClose)  
+                header.style.height = 'auto';
+            else 
+                header.style.height = null;
+        }
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+            menuItem.onclick = function (){
+                header.style.height = null;
+            }
+        }
+    </script>
 </body>
 </html>
